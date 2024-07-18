@@ -19,7 +19,7 @@ export function buildFetch(options: Options) {
 	const middlewares = options.middlewares || [];
 	const fetchFn = options.fetchFn || fetch;
 
-	return function fetchChain(request: Request): Promise<Response> {
+	return function fetchWithMiddleware(request: Request): Promise<Response> {
 		return middlewareHelper(middlewares)(fetchFn)(request);
 	};
 }
