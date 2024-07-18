@@ -1,0 +1,24 @@
+{
+	"name": "fetch-with-middleware",
+	"version": "0.1.0",
+	"scripts": {
+		"build": "vite build",
+		"preview": "vite preview",
+		"lint:ts": "tsc --noEmit",
+		"lint": "biome check && npm run lint:ts",
+		"lint:fix": "biome check --write",
+		"test": "vitest run",
+		"coverage": "vitest run --coverage"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@lokalise/biome-config": "^1.3.0",
+		"@vitest/coverage-v8": "^2.0.3",
+		"jsdom": "^24.1.0",
+		"msw": "^2.3.1",
+		"typescript": "^5.5.3",
+		"vite": "^5.3.3",
+		"vite-plugin-dts": "^3.9.1",
+		"vitest": "^2.0.1"
+	}
+}
