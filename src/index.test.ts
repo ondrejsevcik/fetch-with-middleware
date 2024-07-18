@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { type MiddlewareFn, type RequestFetchLike, buildFetch } from "./index";
 
-describe("fetch", () => {
+describe("buildFetch", () => {
 	it("is possible to create instance", async () => {
 		const middlewareFn: MiddlewareFn = vi.fn();
 		const fetchFn: RequestFetchLike = vi
