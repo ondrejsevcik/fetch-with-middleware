@@ -1,6 +1,6 @@
 {
 	"name": "fetch-with-middleware",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"type": "module",
 	"files": ["README.md", "LICENSE.md", "dist"],
 	"main": "./dist/index.cjs",

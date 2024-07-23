@@ -11,8 +11,6 @@ Familiar Fetch API with support for custom middleware.
 
 Use npm to install the package.
 
-TODO publish the package
-
 ```bash
 npm install fetch-with-middleware
 ```
