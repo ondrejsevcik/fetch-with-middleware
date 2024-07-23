@@ -4,8 +4,8 @@ Familiar Fetch API with support for custom middleware.
 
 - Lightweight
 - Zero dependencies
-- Fetch compatible API
-- Complete (no further updates expected)
+- [Fetch compatible API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- Typescript types included
 
 ## Installation
 
@@ -26,6 +26,7 @@ import { buildFetch, type MiddlewareFn } from 'fetch-with-middleware';
 // log to console every request and response.
 const logToConsole: MiddlewareFn = (next) => (request) => {
     console.log("Request", request);
+
     return next(request).then((response) => {
         console.log("Response", response);
         return response;
