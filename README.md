@@ -2,7 +2,7 @@
 
 Familiar Fetch API with support for custom middleware.
 
-- Lightweight
+- Lightweight - only [235B Minified + Gzipped](https://bundlephobia.com/package/fetch-with-middleware)
 - Zero dependencies
 - [Fetch-compatible API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - TypeScript types included
