@@ -4,8 +4,8 @@ Familiar Fetch API with support for custom middleware.
 
 - Lightweight
 - Zero dependencies
-- [Fetch compatible API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-- Typescript types included
+- [Fetch-compatible API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- TypeScript types included
 
 ## Installation
 
