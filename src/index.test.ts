@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
-import { type MiddlewareFn, type RequestFetchLike, buildFetch } from "./index";
+import { type FetchLike, type MiddlewareFn, buildFetch } from "./index";
 
 describe("buildFetch", () => {
 	it("is possible to use it without middleware", async () => {
-		const fetchFn: RequestFetchLike = vi
+		const fetchFn: FetchLike = vi
 			.fn()
 			.mockImplementation((request) => Response.json({ ok: "ok" }));
 
@@ -36,7 +36,7 @@ describe("buildFetch", () => {
 			});
 		};
 
-		const fetchFn: RequestFetchLike = async (request) => {
+		const fetchFn: FetchLike = async (request) => {
 			orderOfCalls.push("fetch");
 			return Response.json({ ok: "ok" });
 		};

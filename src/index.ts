@@ -1,13 +1,15 @@
-export type RequestFetchLike = (request: Request) => Promise<Response>;
-export type MiddlewareFn = (next: RequestFetchLike) => RequestFetchLike;
+export type FetchArgs = Parameters<typeof fetch>;
+export type FetchResponse = ReturnType<typeof fetch>;
+export type FetchLike = (...args: FetchArgs) => FetchResponse;
+export type MiddlewareFn = (next: FetchLike) => FetchLike;
 
 export type Options = {
 	middlewares?: MiddlewareFn[];
-	fetchFn?: RequestFetchLike;
+	fetchFn?: FetchLike;
 };
 
 function middlewareHelper(middlewares: MiddlewareFn[]) {
-	return (fetchFunction: RequestFetchLike): RequestFetchLike => {
+	return (fetchFunction: FetchLike): FetchLike => {
 		return (
 			middlewares.reduceRight((acc, curr) => curr(acc), fetchFunction) ||
 			fetchFunction
@@ -15,11 +17,11 @@ function middlewareHelper(middlewares: MiddlewareFn[]) {
 	};
 }
 
-export function buildFetch(options: Options) {
+export function buildFetch(options: Options): FetchLike {
 	const middlewares = options.middlewares || [];
 	const fetchFn = options.fetchFn || fetch;
 
-	return function fetchWithMiddleware(request: Request): Promise<Response> {
-		return middlewareHelper(middlewares)(fetchFn)(request);
+	return function fetchWithMiddleware(...args: FetchArgs): FetchResponse {
+		return middlewareHelper(middlewares)(fetchFn)(...args);
 	};
 }
