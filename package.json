@@ -2,11 +2,7 @@
 	"name": "fetch-with-middleware",
 	"version": "1.0.0",
 	"type": "module",
-	"files": [
-		"README.md",
-		"LICENSE.md",
-		"dist"
-	],
+	"files": ["README.md", "LICENSE.md", "dist"],
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
