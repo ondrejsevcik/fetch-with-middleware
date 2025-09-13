@@ -4,7 +4,7 @@ Familiar Fetch API with support for custom middleware.
 
 - Lightweight - only [235B Minified + Gzipped](https://bundlephobia.com/package/fetch-with-middleware)
 - Zero dependencies
-- **Side-effect free** - optimized for tree-shaking with `"sideEffects": false` in package.json
+- **Tree-shakable** - optimized for modern bundlers to reduce bundle size
 - [Fetch-compatible API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) - No need to learn anything new.
 - TypeScript types included
 
@@ -36,9 +36,4 @@ const myFetch = buildFetch({ middlewares: [logToConsole] });
 const response = await myFetch("https://localhost:3000");
 ```
 
-## Bundle Optimization
-
-This library is designed to be side-effect free and includes `"sideEffects": false` in its package.json. This enables optimal tree-shaking in modern bundlers like Webpack, Rollup, and Vite, ensuring that unused exports are eliminated from your final bundle.
-
-The entire library consists of pure functions and type definitions with no global state modifications, making it safe for aggressive optimization by bundlers.
 
