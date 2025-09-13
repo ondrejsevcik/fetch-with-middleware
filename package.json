@@ -1,18 +1,37 @@
 {
 	"name": "fetch-with-middleware",
 	"version": "1.0.0",
-	"type": "module",
+	"description": "A lightweight TypeScript library that wraps the Fetch API with support for custom middleware. Zero dependencies, tiny footprint, and easy extensibility.",
+	"keywords": [
+		"api",
+		"browser",
+		"fetch",
+		"http",
+		"middleware",
+		"node",
+		"request",
+		"typescript",
+		"wrapper"
+	],
+	"homepage": "https://github.com/ondrejsevcik/fetch-with-middleware",
+	"bugs": {
+		"url": "https://github.com/ondrejsevcik/fetch-with-middleware/issues"
+	},
 	"license": "MIT",
-	"sideEffects": false,
+	"author": "Ondrej Sevcik (https://ondrejsevcik.com)",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ondrejsevcik/fetch-with-middleware.git"
+	},
 	"engines": {
 		"node": ">=18.0.0",
 		"npm": ">=10.0.0"
 	},
-	"files": ["README.md", "LICENSE.md", "dist"],
-	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
+	"sideEffects": false,
 	"types": "./dist/index.d.ts",
-	"homepage": "https://github.com/ondrejsevcik/fetch-with-middleware",
+	"files": ["LICENSE.md", "README.md", "dist"],
+	"main": "./dist/index.cjs",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
@@ -23,11 +42,11 @@
 	"scripts": {
 		"build": "vite build",
 		"preview": "vite preview",
-		"lint:ts": "tsc --noEmit",
+		"test": "vitest run",
+		"coverage": "vitest run --coverage",
 		"lint": "biome check && npm run lint:ts",
 		"lint:fix": "biome check --write",
-		"test": "vitest run",
-		"coverage": "vitest run --coverage"
+		"lint:ts": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
