@@ -19,20 +19,34 @@
 	},
 	"license": "MIT",
 	"author": "Ondrej Sevcik (https://ondrejsevcik.com)",
-	"files": ["LICENSE.md", "README.md", "dist"],
-	"main": "./dist/index.cjs",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ondrejsevcik/fetch-with-middleware.git"
 	},
+	"engines": {
+		"node": ">=18.0.0",
+		"npm": ">=10.0.0"
+	},
+	"module": "./dist/index.js",
+	"sideEffects": false,
+	"types": "./dist/index.d.ts",
+	"files": ["LICENSE.md", "README.md", "dist"],
+	"main": "./dist/index.cjs",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.js"
+		}
+	},
 	"scripts": {
 		"build": "vite build",
+		"preview": "vite preview",
+		"test": "vitest run",
 		"coverage": "vitest run --coverage",
 		"lint": "biome check && npm run lint:ts",
 		"lint:fix": "biome check --write",
-		"lint:ts": "tsc --noEmit",
-		"test": "vitest run",
-		"preview": "vite preview"
+		"lint:ts": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
@@ -44,19 +58,5 @@
 		"typescript": "^5.9.2",
 		"vite": "^5.3.3",
 		"vitest": "^3.2.4"
-	},
-	"engines": {
-		"node": ">=18.0.0",
-		"npm": ">=10.0.0"
-	},
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"require": "./dist/index.cjs",
-			"import": "./dist/index.js"
-		}
-	},
-	"module": "./dist/index.js",
-	"sideEffects": false,
-	"types": "./dist/index.d.ts"
+	}
 }
