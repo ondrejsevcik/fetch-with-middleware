@@ -1,12 +1,12 @@
 # fetch-with-middleware
 
-Familiar Fetch API with support for custom middleware.
+A lightweight wrapper around the Fetch API that lets you add custom middleware to your HTTP requests. Use the same familiar fetch syntax while adding powerful features like logging, authentication, retries, and more.
 
-- Lightweight - only [235B Minified + Gzipped](https://bundlephobia.com/package/fetch-with-middleware)
-- Zero dependencies
-- **Tree-shakable** - optimized for modern bundlers to reduce bundle size
-- [Fetch-compatible API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) - No need to learn anything new.
-- TypeScript types included
+- **Ultra lightweight** - only [235B minified + gzipped](https://bundlephobia.com/package/fetch-with-middleware)
+- **Zero dependencies** - no extra packages to slow down your app
+- **Tree-shakable** - modern bundlers can remove unused code to keep your bundle small
+- **Drop-in replacement** - works exactly like the [standard Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), no new syntax to learn
+- **TypeScript ready** - includes full type definitions for better development experience
 
 ## Installation
 
