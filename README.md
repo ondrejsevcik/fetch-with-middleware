@@ -8,6 +8,7 @@ A lightweight wrapper around the Fetch API that lets you add custom middleware t
 - **Drop-in replacement** - works exactly like the [standard Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), no new syntax to learn
 - **TypeScript ready** - includes full type definitions for better development experience
 
+
 ## Installation
 
 Use npm to install the package.
@@ -15,6 +16,8 @@ Use npm to install the package.
 ```bash
 npm install fetch-with-middleware
 ```
+
+> **Note:** This package is published in ESM format only. Make sure your project supports ESM modules.
 
 ## Usage
 
