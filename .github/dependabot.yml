@@ -9,7 +9,6 @@ updates:
       linting-formatting:
         patterns:
           - "@biomejs/biome"
-          - "@lokalise/biome-config"
       testing:
         patterns:
           - "vitest"
