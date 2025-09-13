@@ -1,33 +1,38 @@
 {
 	"name": "fetch-with-middleware",
 	"version": "1.0.0",
-	"type": "module",
-	"license": "MIT",
-	"sideEffects": false,
-	"engines": {
-		"node": ">=18.0.0",
-		"npm": ">=10.0.0"
-	},
-	"files": ["README.md", "LICENSE.md", "dist"],
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
+	"description": "A lightweight TypeScript library that wraps the Fetch API with support for custom middleware. Zero dependencies, tiny footprint, and easy extensibility.",
+	"keywords": [
+		"api",
+		"browser",
+		"fetch",
+		"http",
+		"middleware",
+		"node",
+		"request",
+		"typescript",
+		"wrapper"
+	],
 	"homepage": "https://github.com/ondrejsevcik/fetch-with-middleware",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"require": "./dist/index.cjs",
-			"import": "./dist/index.js"
-		}
+	"bugs": {
+		"url": "https://github.com/ondrejsevcik/fetch-with-middleware/issues"
+	},
+	"license": "MIT",
+	"author": "Ondrej Sevcik (https://ondrejsevcik.com)",
+	"files": ["LICENSE.md", "README.md", "dist"],
+	"main": "./dist/index.cjs",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ondrejsevcik/fetch-with-middleware.git"
 	},
 	"scripts": {
 		"build": "vite build",
-		"preview": "vite preview",
-		"lint:ts": "tsc --noEmit",
+		"coverage": "vitest run --coverage",
 		"lint": "biome check && npm run lint:ts",
 		"lint:fix": "biome check --write",
+		"lint:ts": "tsc --noEmit",
 		"test": "vitest run",
-		"coverage": "vitest run --coverage"
+		"preview": "vite preview"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
@@ -39,5 +44,19 @@
 		"typescript": "^5.9.2",
 		"vite": "^5.3.3",
 		"vitest": "^3.2.4"
-	}
+	},
+	"engines": {
+		"node": ">=18.0.0",
+		"npm": ">=10.0.0"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.js"
+		}
+	},
+	"module": "./dist/index.js",
+	"sideEffects": false,
+	"types": "./dist/index.d.ts"
 }
