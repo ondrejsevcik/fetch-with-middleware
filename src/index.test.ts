@@ -1,5 +1,10 @@
 import { describe, expect, it, vi } from "vitest";
-import { type FetchLike, type MiddlewareFn, buildFetch } from "./index";
+import {
+	type FetchLike,
+	type MiddlewareFn,
+	type Options,
+	buildFetch,
+} from "./index";
 
 describe("buildFetch", () => {
 	it("is possible to use it without middleware", async () => {
@@ -57,5 +62,48 @@ describe("buildFetch", () => {
 			"second - after",
 			"first - after",
 		]);
+	});
+
+	it("works with readonly options and readonly middlewares array", async () => {
+		const middlewareOne: MiddlewareFn = (next) => (request) => {
+			return next(request);
+		};
+
+		const fetchFn: FetchLike = vi
+			.fn()
+			.mockImplementation(() => Response.json({ readonly: "test" }));
+
+		// Test that readonly options work correctly
+		const readonlyOptions: Options = {
+			middlewares: [middlewareOne] as const,
+			fetchFn,
+		} as const;
+
+		const fetch = buildFetch(readonlyOptions);
+
+		const request = new Request("https://localhost:3000");
+		const response = await fetch(request);
+
+		expect(response.status).toEqual(200);
+		expect(await response.json()).toEqual({ readonly: "test" });
+	});
+
+	it("preserves readonly nature of middlewares array in Options type", () => {
+		// This test validates the type system behavior at compile time
+		const middlewareOne: MiddlewareFn = (next) => next;
+		const middlewareTwo: MiddlewareFn = (next) => next;
+
+		const options: Options = {
+			middlewares: [middlewareOne, middlewareTwo],
+		};
+
+		// This should work fine - we can read the middlewares
+		expect(options.middlewares).toBeDefined();
+		expect(Array.isArray(options.middlewares)).toBe(true);
+
+		// The following would cause TypeScript compilation errors if uncommented:
+		// options.middlewares = []; // Error: Cannot assign to 'middlewares' because it is a read-only property
+		// options.middlewares?.push(middlewareOne); // Error: Property 'push' does not exist on type 'readonly MiddlewareFn[]'
+		// options.fetchFn = fetch; // Error: Cannot assign to 'fetchFn' because it is a read-only property
 	});
 });

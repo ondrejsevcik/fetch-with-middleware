@@ -4,11 +4,11 @@ export type FetchLike = (...args: FetchArgs) => FetchResponse;
 export type MiddlewareFn = (next: FetchLike) => FetchLike;
 
 export type Options = {
-	middlewares?: MiddlewareFn[];
-	fetchFn?: FetchLike;
+	readonly middlewares?: readonly MiddlewareFn[];
+	readonly fetchFn?: FetchLike;
 };
 
-function middlewareHelper(middlewares: MiddlewareFn[]) {
+function middlewareHelper(middlewares: readonly MiddlewareFn[]) {
 	return (fetchFunction: FetchLike): FetchLike => {
 		return (
 			middlewares.reduceRight((acc, curr) => curr(acc), fetchFunction) ||
