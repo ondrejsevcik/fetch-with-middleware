@@ -31,7 +31,7 @@ const logToConsole: MiddlewareFn = (next) => (request) => {
     });
 };
 
-const myFetch = buildFetch({ middleware: [logToConsole] });
+const myFetch = buildFetch({ middlewares: [logToConsole] });
 const response = await myFetch("https://localhost:3000");
 ```
 
