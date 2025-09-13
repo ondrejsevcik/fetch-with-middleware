@@ -1,14 +1,9 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-	"organizeImports": { "enabled": true },
+	"extends": [
+		"./node_modules/@lokalise/biome-config/configs/biome-package.jsonc"
+	],
 	"files": {
-		"include": ["**/*.ts", "**/*.tsx", "**/*.json"],
 		"ignore": ["dist/**"]
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true
-		}
 	}
 }
