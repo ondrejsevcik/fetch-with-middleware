@@ -8,7 +8,6 @@ fetch-with-middleware is a TypeScript library that provides a lightweight wrappe
 
 ### Bootstrap and Setup
 - **ALWAYS install dependencies first**: `npm install` -- takes ~20 seconds to complete. NEVER CANCEL. Set timeout to 60+ seconds.
-- **CRITICAL**: The repository requires `@types/node` which is already included in package.json. Do not remove this dependency.
 
 ### Development Commands
 - **Lint code**: `npm run lint` -- runs both Biome and TypeScript checks, takes ~1.5 seconds
@@ -56,7 +55,7 @@ const response = await myFetch('https://example.com');
 
 ### CI/CD Validation
 - **ALWAYS run `npm run lint` before committing** - the GitHub Actions CI will fail otherwise
-- PR titles must follow semantic conventions (enforced by GitHub Actions)
+- PR titles must follow conventional commit format (enforced by GitHub Actions)
 - The release workflow automatically publishes to npm on main branch merges
 
 ## Repository Structure and Navigation
