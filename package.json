@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"type": "module",
 	"license": "MIT",
+	"sideEffects": false,
 	"engines": {
 		"node": ">=18.0.0",
 		"npm": ">=10.0.0"
