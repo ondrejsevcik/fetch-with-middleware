@@ -11,6 +11,9 @@ Familiar Fetch API with support for custom middleware.
 
 Use npm to install the package.
 
+**Requirements:**
+- Node.js 18.0.0 or higher
+
 ```bash
 npm install fetch-with-middleware
 ```

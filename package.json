@@ -3,6 +3,9 @@
 	"version": "1.0.0",
 	"type": "module",
 	"license": "MIT",
+	"engines": {
+		"node": ">=18.0.0"
+	},
 	"files": ["README.md", "LICENSE.md", "dist"],
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
