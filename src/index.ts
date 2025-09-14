@@ -17,6 +17,12 @@ function middlewareHelper(middlewares: MiddlewareFn[]) {
 	};
 }
 
+/**
+ * Builds a fetch function with middleware support.
+ *
+ * Middleware executes in array order where the first middleware wraps the second,
+ * creating an "onion" pattern for request/response processing.
+ */
 export function buildFetch(options: Options): FetchLike {
 	const middlewares = options.middlewares || [];
 	const fetchFn = options.fetchFn || fetch;
