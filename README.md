@@ -113,37 +113,6 @@ const refreshTokenOnUnauthorizedResponse: MiddlewareFn = (next) => (...args) => 
 const myFetch = buildFetch({ middlewares: [refreshTokenOnUnauthorizedResponse] });
 ```
 
-### Retry with delay on first fail
 
-```ts
-const retry = (delayMs: number): MiddlewareFn => (next) => (...args) => {
-    let retried = false;
-    
-    const attemptRequest = async (): Promise<Response> => {
-        try {
-            const response = await next(...args);
-            if (!response.ok) {
-                throw new Error(`Request failed with status ${response.status}`);
-            }
-            return response;
-        } catch (error) {
-            if (retried) {
-                throw error;
-            }
-            retried = true;
-            
-            // Wait before retrying
-            await new Promise(resolve => setTimeout(resolve, delayMs));
-            
-            // Retry the request
-            return attemptRequest();
-        }
-    };
-    
-    return attemptRequest();
-};
-
-const myFetch = buildFetch({ middlewares: [retry(1000)] }); // Retry after 1 second
-```
 
 
