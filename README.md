@@ -85,7 +85,7 @@ const myFetch = buildFetch({ middlewares: [addAuthToken] });
 import { buildFetch, type MiddlewareFn } from 'fetch-with-middleware';
 
 const errorOnNotOkResponse: MiddlewareFn = (next) => (...args) => {
-    return next(...args).then(async (response) => {
+    return next(...args).then((response) => {
         if (!response.ok) {
             throw new Error(`Response status ${response.status}`);
         }
