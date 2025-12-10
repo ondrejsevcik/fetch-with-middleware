@@ -112,7 +112,7 @@ ALWAYS run these steps after making changes:
 - Module formats: ESM (`.js`), CommonJS (`.cjs`), TypeScript (`.d.ts`)
 - Entry points defined in `package.json` exports field
 - `sideEffects: false` enables tree-shaking
-- Requires Node.js >=18.0.0, npm >=10.0.0
+- Requires Node.js >=20.19.0, npm >=10.0.0
 
 ## Development Guidelines
 
